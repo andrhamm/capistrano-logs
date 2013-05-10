@@ -1,12 +1,16 @@
-# Capistrano::Logs
+# CapistranoLogs
 
-TODO: Write a gem description
+Capistrano tasks that make it super easy to work with server logs.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'capistrano-logs'
+    gem 'capistrano-logs', :require => false
+
+Add this lone to your application's Capistrano configuration
+
+    require 'capistrano-logs'
 
 And then execute:
 
@@ -18,7 +22,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### logs:tail
+
+You can now easily tail multiple servers at once by running:
+
+    $ cap logs:tail
 
 ## Contributing
 
