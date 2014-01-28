@@ -8,7 +8,10 @@ module CapistranoLogs
             # based on gist: https://gist.github.com/phil-monroe/2896782
             last_host = ""
             max_hostname_length=19
-            run "tail -f #{shared_path}/log/#{rails_env}.log" do |channel, stream, data|
+            logcommand = fetch(:logcommand) { "" }
+            puts "log tailing extended command: '#{logcommand}'" if logcommand.length > 0
+
+            run "tail -f #{shared_path}/log/#{rails_env}.log #{logcommand}" do |channel, stream, data|
               trap("INT") { puts 'Interupted'; exit 0; }
               tag = channel[:host].split(".").first
               tag += " "*(max_hostname_length-tag.length) + ":  "
