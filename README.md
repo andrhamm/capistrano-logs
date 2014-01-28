@@ -28,6 +28,14 @@ You can now easily tail multiple servers at once by running:
 
     $ cap logs:tail
 
+You can pass aditional commands to the `tail` command that gets run on the server. So:
+
+    $ cap logs:tail -s logcommand="| grep my_filter"
+
+would result in:
+
+    `tail -f /usr/share/my_app/shared/log/my_env.log | grep my_filter`
+
 ## Contributing
 
 1. Fork it
